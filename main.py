@@ -59,7 +59,7 @@ class ChatResponse(BaseModel):
 def post_chat(request: ChatRequest):
     config = {
     "configurable":{
-        "session_id": request.userId
+        "session_id": request.session_id
         }
     }
     response = chatbot.invoke({"input":request.message}, config=config)
