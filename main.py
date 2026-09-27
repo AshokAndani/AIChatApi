@@ -64,7 +64,10 @@ def post_chat(request: ChatRequest):
     }
     response = chatbot.invoke({"input":request.message}, config=config)
     return ChatResponse(content=response)
-    
+
+@app.get("/")
+def health_check():
+    return {"status": "ok"}
 
 @app.post("/chat/stream")
 def chat_stream(request: ChatRequest):
